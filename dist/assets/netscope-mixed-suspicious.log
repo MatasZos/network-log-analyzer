@@ -1,0 +1,15 @@
+2026-10-11T09:14:21Z firewall deny src=203.0.113.44 dst=10.0.0.12 proto=TCP dpt=22 reason=blocked
+2026-10-11T09:14:23Z sshd[982]: Failed password for invalid user admin from 203.0.113.44 port 51544 ssh2
+2026-10-11T09:14:28Z sshd[982]: Failed password for invalid user root from 203.0.113.44 port 51549 ssh2
+2026-10-11T09:14:33Z sshd[982]: Failed password for invalid user test from 203.0.113.44 port 51551 ssh2
+2026-10-11T09:14:41Z sshd[982]: Failed password for invalid user oracle from 203.0.113.44 port 51562 ssh2
+2026-10-11T09:15:01Z firewall allow src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=443
+2026-10-11T09:15:02Z firewall allow src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=80
+2026-10-11T09:15:03Z firewall deny src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=3389 reason=blocked
+2026-10-11T09:15:04Z firewall deny src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=445 reason=blocked
+2026-10-11T09:15:05Z firewall deny src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=23 reason=blocked
+2026-10-11T09:15:06Z firewall deny src=198.51.100.22 dst=10.0.0.21 proto=TCP dpt=5900 reason=blocked
+2026-10-11T09:16:14Z nginx: 10.0.0.5 - - "GET /login HTTP/1.1" 200 src=192.0.2.18 dst=10.0.0.21 dpt=443
+2026-10-11T09:16:18Z nginx: 10.0.0.5 - - "POST /login HTTP/1.1" 401 src=192.0.2.18 dst=10.0.0.21 dpt=443
+2026-10-11T09:16:22Z nginx: 10.0.0.5 - - "POST /login HTTP/1.1" 401 src=192.0.2.18 dst=10.0.0.21 dpt=443
+2026-10-11T09:16:27Z firewall allow src=10.0.0.8 dst=10.0.0.30 proto=UDP dpt=53

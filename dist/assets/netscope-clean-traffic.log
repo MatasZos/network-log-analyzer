@@ -1,0 +1,8 @@
+2026-10-11T10:01:05Z firewall allow src=10.0.0.14 dst=10.0.0.30 proto=UDP dpt=53
+2026-10-11T10:01:09Z firewall allow src=10.0.0.14 dst=198.51.100.10 proto=TCP dpt=443
+2026-10-11T10:02:13Z nginx: 10.0.0.21 - - "GET / HTTP/1.1" 200 src=192.0.2.55 dst=10.0.0.21 dpt=443
+2026-10-11T10:02:19Z nginx: 10.0.0.21 - - "GET /assets/site.css HTTP/1.1" 200 src=192.0.2.55 dst=10.0.0.21 dpt=443
+2026-10-11T10:03:44Z firewall allow src=10.0.0.8 dst=10.0.0.12 proto=TCP dpt=443
+2026-10-11T10:04:10Z firewall allow src=10.0.0.9 dst=10.0.0.12 proto=TCP dpt=80
+2026-10-11T10:04:55Z firewall allow src=10.0.0.15 dst=10.0.0.30 proto=UDP dpt=53
+2026-10-11T10:05:11Z nginx: 10.0.0.21 - - "POST /login HTTP/1.1" 200 src=192.0.2.60 dst=10.0.0.21 dpt=443

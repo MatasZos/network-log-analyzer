@@ -1,0 +1,8 @@
+2026-10-11T11:20:01Z sshd[1402]: Failed password for invalid user admin from 203.0.113.99 port 61101 ssh2
+2026-10-11T11:20:08Z sshd[1402]: Failed password for invalid user root from 203.0.113.99 port 61102 ssh2
+2026-10-11T11:20:15Z sshd[1402]: Failed password for invalid user test from 203.0.113.99 port 61103 ssh2
+2026-10-11T11:20:23Z sshd[1402]: Failed password for invalid user ubuntu from 203.0.113.99 port 61104 ssh2
+2026-10-11T11:20:31Z sshd[1402]: Failed password for invalid user deploy from 203.0.113.99 port 61105 ssh2
+2026-10-11T11:21:02Z firewall deny src=203.0.113.99 dst=10.0.0.12 proto=TCP dpt=22 reason=blocked
+2026-10-11T11:21:18Z firewall deny src=203.0.113.99 dst=10.0.0.12 proto=TCP dpt=22 reason=blocked
+2026-10-11T11:22:44Z sshd[1402]: Accepted password for matas from 10.0.0.8 port 51222 ssh2

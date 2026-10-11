@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NetScope Log Analyzer</title>
+    <meta
+      name="description"
+      content="Rule-based network log analyzer for spotting failed login bursts, scan-like behavior, denied traffic and unusual ports."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Network Security Tool</p>
+        <h1>NetScope Log Analyzer</h1>
+      </div>
+      <div class="header-actions">
+        <button id="loadSample" type="button">Load Sample</button>
+        <button id="exportReport" type="button">Export Report</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="workspace" aria-label="Analyzer workspace">
+        <aside class="input-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Input</p>
+            <h2>Paste or Upload Logs</h2>
+          </div>
+          <label class="file-picker" for="logFile">
+            <span>Upload .log or .txt</span>
+            <input id="logFile" type="file" accept=".log,.txt,.csv,text/plain" />
+          </label>
+          <div class="sample-pack" aria-label="Sample log files">
+            <p>Sample data</p>
+            <button type="button" data-sample="mixed">Mixed suspicious</button>
+            <button type="button" data-sample="clean">Clean traffic</button>
+            <button type="button" data-sample="ssh">SSH brute force</button>
+          </div>
+          <textarea id="logInput" spellcheck="false" placeholder="Paste firewall, SSH, web or mixed network logs here..."></textarea>
+          <div class="controls">
+            <button id="analyze" class="primary" type="button">Analyze Logs</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+          <div class="rule-box">
+            <h3>Detection Rules</h3>
+            <ul>
+              <li>Repeated failed authentication from one IP</li>
+              <li>Port scan-like activity across many destination ports</li>
+              <li>High-volume requests from a single source</li>
+              <li>Denied or blocked firewall events</li>
+              <li>Traffic to unusual management ports</li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="results-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Results</p>
+            <h2>Traffic Summary</h2>
+          </div>
+          <div class="metric-grid" aria-label="Summary metrics">
+            <article>
+              <span id="totalEvents">0</span>
+              <p>Total events</p>
+            </article>
+            <article>
+              <span id="flaggedEvents">0</span>
+              <p>Flagged events</p>
+            </article>
+            <article>
+              <span id="uniqueSources">0</span>
+              <p>Source IPs</p>
+            </article>
+            <article>
+              <span id="riskScore">0</span>
+              <p>Risk score</p>
+            </article>
+          </div>
+
+          <div class="insight-layout">
+            <article class="insight-card">
+              <h3>Priority Findings</h3>
+              <div id="findings" class="finding-list empty">Run an analysis to see findings.</div>
+            </article>
+            <article class="insight-card">
+              <h3>Top Source IPs</h3>
+              <div id="topSources" class="source-list empty">No source data yet.</div>
+            </article>
+          </div>
+
+          <article class="table-card">
+            <div class="table-heading">
+              <h3>Parsed Events</h3>
+              <span id="parseQuality">Waiting for logs</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Port</th>
+                    <th>Action</th>
+                    <th>Reason</th>
+                  </tr>
+                </thead>
+                <tbody id="eventsTable">
+                  <tr>
+                    <td colspan="6">No events parsed yet.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
